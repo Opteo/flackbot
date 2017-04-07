@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Opteo/flackbot#readme",
   "dependencies": {
+    "rpi-gpio": "^0.7.0",
     "slackbots": "^1.0.2"
   }
 }
