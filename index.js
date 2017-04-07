@@ -26,8 +26,9 @@ bot.on('start', function() {
                     message: event.text,
                     ts: event.ts
                 }
-                if(message === 'flag up') {
+                if(chatter.message === 'flag up') {
                     console.log('executing flag command')
+                    bot.postMessageToChannel(chatter.channel, chatter.username + ' executed flag up command :pogchamp:')
                     flagUp()
                 }
             })
