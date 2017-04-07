@@ -1,0 +1,22 @@
+{
+  "name": "flackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opteo/flackbot.git"
+  },
+  "author": "Mateusz <mateuszjanusz95@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opteo/flackbot/issues"
+  },
+  "homepage": "https://github.com/Opteo/flackbot#readme",
+  "dependencies": {
+    "slackbots": "^1.0.2"
+  }
+}
