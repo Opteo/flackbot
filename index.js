@@ -2,6 +2,8 @@ const SlackBot = require('slackbots')
 const config = require('./config')
 const gpio = require('rpi-gpio')
 const rpi_pin = 7
+var PythonShell = require('python-shell')
+
 
 const bot = new SlackBot({
     token: config.token,
@@ -45,14 +47,23 @@ bot.on('error', (err) => {
 })
 
 function flagUp() {
-    gpio.setup(rpi_pin, gpio.DIR_OUT, write)
-    write()
+
+    PythonShell.run('flagup.py', {scriptPath: '/home/pi/flackbot'}, function(err) {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log('finished script')  
+        }
+    })
+
+    // gpio.setup(rpi_pin, gpio.DIR_OUT, write)
+    // write()
 }
 
-function write() {
-    console.log('writing')
-    gpio.write(rpi_pin, true, (err) => {
-        if(err) throw err
-        console.log('written to pin')
-    })
-}
+// function write() {
+//     console.log('writing')
+//     gpio.write(rpi_pin, true, (err) => {
+//         if(err) throw err
+//         console.log('written to pin')
+//     })
+// }
