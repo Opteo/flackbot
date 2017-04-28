@@ -33,6 +33,11 @@ bot.on('start', function() {
                     bot.postMessageToChannel(chatter.channel, chatter.username + ' executed flag up command :pogchamp:')
                     flagUp()
                 }
+                if(chatter.message === 'flag down') {
+                    console.log('executing flag command')
+                    bot.postMessageToChannel(chatter.channel, chatter.username + ' executed flag down command :pogchamp:')
+                    flagDown()
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -49,6 +54,19 @@ bot.on('error', (err) => {
 function flagUp() {
 
     PythonShell.run('flagup.py', {scriptPath: '/home/pi/flackbot'}, function(err) {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log('finished script')  
+        }
+    })
+
+    // gpio.setup(rpi_pin, gpio.DIR_OUT, write)
+    // write()
+}
+function flagDown() {
+
+    PythonShell.run('flagdown.py', {scriptPath: '/home/pi/flackbot'}, function(err) {
         if(err) {
             console.log(err)
         } else {
