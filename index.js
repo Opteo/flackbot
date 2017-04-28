@@ -28,12 +28,16 @@ bot.on('start', function() {
                     message: event.text,
                     ts: event.ts
                 }
-                if(chatter.message === 'flag up') {
+
+                const up_messages = ['flag up', 'hoist the flag', 'moist the flag'];
+                const down_messages = ['flag down', 'dehoist the flag', 'demoist the flag'];
+
+                if(up_messages.includes(chatter.message.trim().toLowerCase())) {
                     console.log('executing flag command')
                     bot.postMessageToChannel(chatter.channel, chatter.username + ' executed flag up command :pogchamp:')
                     flagUp()
                 }
-                if(chatter.message === 'flag down') {
+                if(down_messages.includes(chatter.message.trim().toLowerCase())){
                     console.log('executing flag command')
                     bot.postMessageToChannel(chatter.channel, chatter.username + ' executed flag down command :pogchamp:')
                     flagDown()
